@@ -1,24 +1,31 @@
-# README
+# MyPetDiary
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サービス概要
+ペットに関する日々の記録を管理するアプリです
+ペットは複数登録可能です
 
-Things you may want to cover:
+## 想定されるユーザー層
+ペットを飼われているすべての方
+特に、多頭飼いでペットごとに異なるお世話（投薬、通院、お手入れ等）を管理したい方
 
-* Ruby version
+## サービスコンセプト
+私は犬＆猫の多頭飼いをしているのですが、それぞれお世話の内容やタイミングが異なるので、
+みんなの記録を1つの場所でパッと確認したいと思い開発しました。
+投薬や通院以外に、お出かけやお手入れなどの記録として使ってもらいたいです。
+複数のペットを登録できるので、それらを一覧で確認することができます。
 
-* System dependencies
+## 実装を予定している機能
+### MVP
+* ユーザー登録
+* ログイン機能
+* ペットの基本情報登録
+* 日々のログ記録
+  - お世話・お出かけなどのログを記録（種別を選択して登録）
+  - 体重の記録（ログとセット、または単独で記録可能）
+* 記録の閲覧機能（過去の活動と体重の変化を確認）
+* ログ種別のカスタマイズ（デフォルトの種別に加えて、自分専用の種別を作成）
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### その後の追加予定機能
+* 体重グラフ表示
+* お世話予定リマインダー機能
+* ログ共有機能
