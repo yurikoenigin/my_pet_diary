@@ -9,7 +9,7 @@ class PetsController < ApplicationController
   def show; end
 
   private
-  
+
   def set_pet
     @pet = current_user.pets.find(params[id])
   rescue ActiveRecord::RecordNotFound
