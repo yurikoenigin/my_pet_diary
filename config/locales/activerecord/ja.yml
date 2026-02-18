@@ -1,0 +1,17 @@
+ja:
+  activerecord:
+    models:
+      pet: ペット
+    attributes:
+      pet:
+        name: 名前
+        birthday: 誕生日
+        adopted_at: お迎えした日
+        gender: 性別
+        active: ステータス
+  enums:
+    pet:
+      gender:
+        male: 男の子
+        female: 女の子
+        other: その他

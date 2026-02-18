@@ -121,6 +121,8 @@ GEM
     dotenv (3.2.0)
     drb (2.2.3)
     ed25519 (1.4.0)
+    enum_help (0.0.20)
+      activesupport (>= 3.0.0)
     erb (6.0.1)
     erubi (1.13.1)
     et-orbi (1.4.0)
@@ -429,6 +431,7 @@ DEPENDENCIES
   debug
   devise (~> 5.0)
   devise-i18n-views
+  enum_help
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
@@ -488,6 +491,7 @@ CHECKSUMS
   dotenv (3.2.0) sha256=e375b83121ea7ca4ce20f214740076129ab8514cd81378161f11c03853fe619d
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
   ed25519 (1.4.0) sha256=16e97f5198689a154247169f3453ef4cfd3f7a47481fde0ae33206cdfdcac506
+  enum_help (0.0.20) sha256=c3cdac74971b84af5ecfc2de72d3a5f0ab08216156dae0d6976b9885d706b98a
   erb (6.0.1) sha256=28ecdd99c5472aebd5674d6061e3c6b0a45c049578b071e5a52c2a7f13c197e5
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   et-orbi (1.4.0) sha256=6c7e3c90779821f9e3b324c5e96fda9767f72995d6ae435b96678a4f3e2de8bc
