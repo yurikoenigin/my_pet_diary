@@ -1,0 +1,64 @@
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <div class="flex justify-between items-center mb-8">
+    <h1 class="text-2xl font-bold text-gray-800"><%= Pet.model_name.human %>一覧</h1>
+    <%= link_to new_pet_path, class: "bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold py-2 px-5 rounded shadow-sm transition duration-300" do %>
+      新規登録
+    <% end %>
+  </div>
+
+  <div class="space-y-4">
+    <% @pets.each do |pet| %>
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden hover:border-indigo-300 transition-all duration-300">
+        <div class="p-4 flex items-center gap-5">
+          
+          <%# サムネイル画像エリア（将来的に Active Storage で表示） %>
+          <div class="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
+            <% if pet.respond_to?(:image) && pet.image.attached? %>
+              <%# 画像がある場合 %>
+              <%= image_tag pet.image, class: "object-cover w-full h-full" %>
+            <% else %>
+              <%# 画像がない場合のプレースホルダー %>
+              <div class="text-gray-400 text-xs flex flex-col items-center">
+                <svg xmlns="http://www.w3.org" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                NO IMAGE
+              </div>
+            <% end %>
+          </div>
+
+          <%# テキスト情報エリア %>
+          <div class="flex-grow min-w-0">
+            <div class="flex items-center gap-3 mb-2">
+              <h2 class="text-lg font-bold text-gray-800 truncate"><%= pet.name %></h2>
+              <span class="text-[10px] px-2 py-0.5 rounded border <%= gender_class(pet.gender) %> font-bold">
+                <%= pet.gender_i18n %>
+              </span>
+            </div>
+            
+            <%# 間隔を詰めつつ、横並びにするセクション %>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 text-[13px] text-gray-600">
+              <div class="flex items-center whitespace-nowrap">
+                <span class="font-medium text-gray-400 mr-1.5"><%= Pet.human_attribute_name(:birthday) %>:</span>
+                <span class="text-gray-700"><%= pet.birthday || "未登録" %></span>
+              </div>
+              <div class="flex items-center whitespace-nowrap">
+                <span class="font-medium text-gray-400 mr-1.5"><%= Pet.human_attribute_name(:adopted_at) %>:</span>
+                <span class="text-gray-700 text-xs"><%= pet.adopted_at || "未登録" %></span>
+              </div>
+            </div>
+          </div>
+
+          <%# アクションエリア %>
+          <div class="flex flex-col items-end gap-2 shrink-0">
+            <span class="text-[10px] <%= pet.active ? 'text-green-600 bg-green-50' : 'text-gray-400 bg-gray-50' %> px-2 py-1 rounded font-bold">
+              <%= pet.active ? "表示中" : "非表示" %>
+            </span>
+            <%= link_to "詳細", pet_path(pet), class: "text-sm font-bold text-indigo-600 hover:text-indigo-800" %>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
