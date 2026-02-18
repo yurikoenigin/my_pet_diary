@@ -1,0 +1,26 @@
+<h1>ペット一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>名前</th>
+      <th>性別</th>
+      <th>ステータス</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.gender %></td>
+        <td><%= pet.active ? "有効" : "無効" %></td>
+        <td><%= link_to "詳細", pet_path(pet) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "新しいペットを登録する", new_pet_path %>
