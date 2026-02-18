@@ -1,2 +1,14 @@
 <h1>ようこそマイペットダイアリーへ！</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<p>大切なペットの情報を記録しましょう。</p>
+
+<div class="navigation">
+  <% if user_signed_in? %>
+    <%# ログインしている場合 %>
+    <p>こんにちは、<%= current_user.name %>さん！</p>
+    <%= link_to "マイペット一覧を見る", pets_path, class: "button" %>
+  <% else %>
+    <%# ログインしていない場合 %>
+    <%= link_to "新規登録", new_user_registration_path %> |
+    <%= link_to "ログイン", new_user_session_path %>
+  <% end %>
+</div>
