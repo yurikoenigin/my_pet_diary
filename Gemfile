@@ -75,3 +75,7 @@ gem "tailwindcss-rails", "~> 4.4"
 
 gem "devise", "~> 5.0"
 gem "devise-i18n-views"
+
+gem "active_storage_validations"
+
+gem "cloudinary", "~> 2.0"
