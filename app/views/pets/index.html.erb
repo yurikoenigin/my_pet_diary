@@ -31,9 +31,14 @@
           <div class="flex-grow min-w-0">
             <div class="flex items-center gap-3 mb-2">
               <h2 class="text-lg font-bold text-gray-800 truncate"><%= pet.name %></h2>
-              <span class="text-[10px] px-2 py-0.5 rounded border <%= gender_class(pet.gender) %> font-bold">
-                <%= pet.gender_i18n %>
-              </span>
+              <% if pet.gender.present? %>
+                <span class="text-[10px] px-2 py-0.5 rounded border <%= gender_class(pet.gender) %> font-bold">
+                  <%= pet.gender_i18n %>
+                </span>
+              <% end %>
+              <% if pet.birthday.present? %>
+                <span class="ml-1 text-sm text-gray-700">(<%= pet.age %>歳)</span>
+              <% end %>
             </div>
             
             <%# 間隔を詰めつつ、横並びにするセクション %>
@@ -52,7 +57,7 @@
           <%# アクションエリア %>
           <div class="flex flex-col items-end gap-2 shrink-0">
             <span class="text-[10px] <%= pet.active ? 'text-green-600 bg-green-50' : 'text-gray-400 bg-gray-50' %> px-2 py-1 rounded font-bold">
-              <%= pet.active ? "表示中" : "非表示" %>
+              <%= pet.active ? "日記登録可" : "" %>
             </span>
             <%= link_to "詳細", pet_path(pet), class: "text-sm font-bold text-indigo-600 hover:text-indigo-800" %>
           </div>
