@@ -28,5 +28,5 @@ class Pet < ApplicationRecord
 
   def purge_image
     image.purge
-  end  
+  end
 end

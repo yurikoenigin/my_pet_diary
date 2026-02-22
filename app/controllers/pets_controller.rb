@@ -17,7 +17,7 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to pets_path, notice: t('defaults.flash_message.created', item: Pet.model_name.human)
+      redirect_to pets_path, notice: t("defaults.flash_message.created", item: Pet.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class PetsController < ApplicationController
 
   def update
     if @pet.update(pet_params)
-      redirect_to pets_path, notice: t('defaults.flash_message.updated', item: Pet.model_name.human)
+      redirect_to pets_path, notice: t("defaults.flash_message.updated", item: Pet.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet.destroy!
-    redirect_to pets_path, notice: t('defaults.flash_message.deleted', item: Pet.model_name.human)
+    redirect_to pets_path, notice: t("defaults.flash_message.deleted", item: Pet.model_name.human)
   end
 
   private
@@ -41,7 +41,7 @@ class PetsController < ApplicationController
   def set_pet
     @pet = current_user.pets.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to pets_path, alert: t('defaults.flash_message.no_permission')
+    redirect_to pets_path, alert: t("defaults.flash_message.no_permission")
   end
 
   def pet_params
