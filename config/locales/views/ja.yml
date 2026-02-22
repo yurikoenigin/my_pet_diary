@@ -1,0 +1,29 @@
+ja:
+  helpers:
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  defaults:
+    index: 一覧
+    show: 詳細
+    edit: 編集
+    back_to_index: 一覧に戻る
+    back_to_show: 詳細に戻る
+    go_to_edit: 編集する
+    destroy: データを削除する
+    unregistered: 未登録
+    active: 日記登録可
+  header:
+    index_pet: ペット一覧
+    create_pet: ペットを登録する
+  pets:
+    new:
+      title: ペット登録
+    show:
+      title: ペット詳細
+      no_image: NO IMAGE
+    index:
+      no_image: NO IMAGE
+    edit:
+      title: ペット情報編集

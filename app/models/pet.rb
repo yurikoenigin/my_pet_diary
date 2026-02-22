@@ -20,7 +20,8 @@ class Pet < ApplicationRecord
     # 今日の日付と誕生日の差から年齢を計算
     d1 = birthday.strftime("%Y%m%d").to_i
     d2 = Time.zone.now.strftime("%Y%m%d").to_i
-    (d2 - d1) / 10000
+    res = (d2 - d1) / 10000
+    "#{res}歳"
   end
 
   private

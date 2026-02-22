@@ -7,7 +7,7 @@
 
   <%# 写真アップロード %>
 <div class="space-y-4">
-  <%= f.label :image, "プロフィール写真", class: "block text-sm font-medium text-gray-700" %>
+  <%= f.label :image, class: "block text-sm font-medium text-gray-700" %>
 
   <%# --- ここからプレビューエリア --- %>
   <div class="flex items-center gap-4 mb-4">
@@ -26,7 +26,7 @@
     <% if pet.image.attached? && pet.persisted? %>
       <div class="flex items-center gap-2">
         <%= f.check_box :remove_image, class: "rounded border-gray-300 text-red-600 focus:ring-red-500 cursor-pointer" %>
-        <%= f.label :remove_image, "この写真を削除する", class: "text-xs text-red-500 font-bold cursor-pointer" %>
+        <%= f.label :remove_image, class: "text-xs text-red-500 font-bold cursor-pointer" %>
       </div>
     <% end %>
   </div>
@@ -87,6 +87,6 @@
   </div>
 
   <div class="pt-5">
-    <%= f.submit "登録する", class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors" %>
+    <%= f.submit class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors" %>
   </div>
 <% end %>
