@@ -1,0 +1,76 @@
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-100">
+    
+    <%# ヘッダー部分：名前とステータス %>
+    <div class="mb-8 flex justify-between items-start">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900"><%= @pet.name %></h1>
+        <p class="text-sm text-gray-500"><%= t('.title') %></p>
+      </div>
+      <% if @pet.active %>
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">
+          <%=  t('defaults.active') %>
+        </span>
+      <% end %>
+    </div>
+
+    <%# 写真セクション：フォームの点線枠の雰囲気を活かしたデザイン %>
+    <div class="mb-8">
+      <div class="aspect-square w-full max-w-[280px] mx-auto overflow-hidden rounded-2xl border-2 border-gray-100 shadow-inner bg-gray-50">
+        <% if @pet.image.attached? %>
+          <%= image_tag @pet.image, class: "w-full h-full object-cover" %>
+        <% else %>
+          <div class="w-full h-full flex flex-col items-center justify-center text-gray-300 gap-2">
+            <svg xmlns="http://www.w3.org" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <span class="text-xs font-bold"><%= t('.no_image') %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# 情報セクション：フォームの入力項目のような整列 %>
+    <div class="space-y-6">
+      <%# 性別 %>
+      <div class="border-b border-gray-50 pb-4">
+        <span class="block text-sm font-medium text-gray-400 mb-1"><%= Pet.human_attribute_name(:gender) %></span>
+        <% if @pet.gender.present? %>
+          <span class="inline-block px-3 py-1 rounded-md border <%= gender_class(@pet.gender) %> text-sm font-bold">
+            <%= @pet.gender_i18n %>
+          </span>
+        <% else %>
+          <span class="text-sm text-gray-400 italic"><%= t('defaults.unregistered') %></span>
+        <% end %>
+      </div>
+
+      <%# 日付系：グリッドで並べる %>
+      <div class="grid grid-cols-2 gap-8 border-b border-gray-50 pb-4">
+        <div>
+          <span class="block text-sm font-medium text-gray-400 mb-1"><%= Pet.human_attribute_name(:birthday) %></span>
+          <p class="text-gray-900 font-medium">
+            <%= @pet.birthday || t('defaults.unregistered') %>
+            <% if @pet.age.present? %>
+              <span class="ml-2 text-indigo-600 text-sm font-bold"><%= @pet.age %></span>
+            <% end %>
+          </p>
+        </div>
+        <div>
+          <span class="block text-sm font-medium text-gray-400 mb-1"><%= Pet.human_attribute_name(:adopted_at) %></span>
+          <p class="text-gray-900 font-medium"><%= @pet.adopted_at || t('defaults.unregistered') %></p>
+        </div>
+      </div>
+    </div>
+
+    <%# アクションボタン %>
+    <div class="mt-10 flex flex-col gap-3">
+      <%= link_to t('defaults.go_to_edit'), edit_pet_path(@pet), class: "w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 transition-colors" %>
+      
+      <div class="flex justify-between items-center px-1">
+        <%= link_to t('defaults.back_to_index'), pets_path, class: "text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors" %>
+        <%= button_to t('defaults.destroy'), pet_path(@pet), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "text-xs font-medium text-red-400 hover:text-red-600 transition-colors" %>
+      </div>
+    </div>
+
+  </div>
+</div>

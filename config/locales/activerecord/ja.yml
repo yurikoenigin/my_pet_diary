@@ -9,6 +9,8 @@ ja:
         adopted_at: お迎えした日
         gender: 性別
         active: ステータス
+        image: ペット写真
+        remove_image: 写真を削除
   enums:
     pet:
       gender:
