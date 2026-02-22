@@ -11,12 +11,20 @@ ja:
     back_to_index: 一覧に戻る
     back_to_show: 詳細に戻る
     go_to_edit: 編集する
+    go_to_new: 登録する
     destroy: データを削除する
     unregistered: 未登録
     active: 日記登録可
+    flash_message:
+      created: "%{item}情報を登録しました"
+      not_created: "%{item}情報を登録できませんでした"
+      updated: "%{item}情報を更新しました"
+      not_updated: "%{item}情報を更新できませんでした"
+      deleted: "%{item}情報を削除しました"
+      require_login: ログインしてください
+      no_permission: アクセス権がありません
   header:
     index_pet: ペット一覧
-    create_pet: ペットを登録する
   pets:
     new:
       title: ペット登録
