@@ -25,6 +25,7 @@ ja:
       no_permission: アクセス権がありません
   header:
     index_pet: ペット一覧
+    index_log_type: ログ種類一覧
   pets:
     new:
       title: ペット登録

@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       pet: ペット
+      log_type: ログ種類
     attributes:
       pet:
         name: 名前
@@ -11,6 +12,10 @@ ja:
         active: ステータス
         image: ペット写真
         remove_image: 写真を削除
+      log_type:
+        name: ログ種類名
+        description: 説明
+        active: ステータス
   enums:
     pet:
       gender:

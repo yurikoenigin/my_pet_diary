@@ -1,0 +1,41 @@
+<div class="max-w-3xl mx-auto px-4 py-8"> <%# 幅を少し絞って読みやすく %>
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-800"><%= t('header.index_log_type') %></h1>
+    </div>
+    <%= link_to t('defaults.go_to_new'), new_log_type_path, class: "inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition shadow-sm" %>
+  </div>
+
+  <%# 縦に並べるコンテナ %>
+  <div class="space-y-4">
+    <% @log_types.each do |log_type| %>
+      <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-indigo-300 transition-colors flex items-center gap-4">
+        
+        <%# 左側のアイコンエリア %>
+        <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <%# 中央のテキストエリア（横長に広がる） %>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2">
+            <h3 class="text-lg font-bold text-gray-900 truncate"><%= log_type.name %></h3>
+            <% if log_type.active %>
+              <span class="ml-2 text-[10px] text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                <%= t('defaults.active') %>
+              </span>
+            <% end %>
+          </div>
+          <% if log_type.description.present? %>
+            <p class="text-sm text-gray-500 truncate mt-0.5"><%= log_type.description %></p>
+          <% end %>
+        </div>
+
+        <%# 右側の操作ボタン %>
+        <div class="flex items-center text-indigo-600 hover:text-indigo-800 font-bold text-sm">
+          <%= link_to t('defaults.go_to_edit'), edit_log_type_path(log_type), class: "p-2 text-gray-400 hover:text-indigo-600 transition-colors" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

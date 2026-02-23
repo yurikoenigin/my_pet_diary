@@ -26,9 +26,9 @@
             <div class="px-4 py-2 text-xs text-gray-500 border-b border-gray-100 mb-1">
               ログイン中: <%= current_user.name %>さん
             </div>
-            <%= link_to "ユーザー情報", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
             <%= link_to "ペット情報", pets_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
-            <%= link_to "ログ種別情報", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
+            <%= link_to "ログ種別情報", log_types_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
+            <%= link_to "ユーザー情報", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
           </div>
         </li>
         <li>
