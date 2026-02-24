@@ -15,6 +15,7 @@ ja:
     destroy: データを削除する
     unregistered: 未登録
     active: 日記登録可
+    guidance: "この%{item}を記録時に選択できるようにします"
     flash_message:
       created: "%{item}情報を登録しました"
       not_created: "%{item}情報を登録できませんでした"
@@ -36,3 +37,6 @@ ja:
       no_image: NO IMAGE
     edit:
       title: ペット情報編集
+  log_types:
+    new:
+      title: ログ種類登録
