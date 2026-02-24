@@ -32,9 +32,14 @@
         </div>
 
         <%# 右側の操作ボタン %>
-        <div class="flex items-center text-indigo-600 hover:text-indigo-800 font-bold text-sm">
-          <%= link_to t('defaults.go_to_edit'), edit_log_type_path(log_type), class: "p-2 text-gray-400 hover:text-indigo-600 transition-colors" %>
-        </div>
+        <div class="absolute top-4 right-4 sm:static sm:flex-shrink-0">
+            <%= link_to log_type_path(log_type), class: "flex items-center text-indigo-600 hover:text-indigo-800 font-bold text-sm" do %>
+              <span><%= t('defaults.show') %></span>
+              <svg xmlns="http://www.w3.org" class="h-4 w-4 ml-0.5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+              </svg>
+            <% end %>
+          </div>
       </div>
     <% end %>
   </div>

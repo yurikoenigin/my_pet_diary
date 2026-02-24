@@ -16,6 +16,7 @@ ja:
         name: ログ種類名
         description: 説明
         active: ステータス
+        updated_at: 登録日
   enums:
     pet:
       gender:
