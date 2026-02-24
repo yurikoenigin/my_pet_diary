@@ -68,7 +68,7 @@
       
       <div class="flex justify-between items-center px-1">
         <%= link_to t('defaults.back_to_index'), pets_path, class: "text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors" %>
-        <%= button_to t('defaults.destroy'), pet_path(@pet), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "text-xs font-medium text-red-400 hover:text-red-600 transition-colors" %>
+        <%= link_to t('defaults.destroy'), pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "text-sm font-medium text-red-400 hover:text-red-600 transition-colors" %>
       </div>
     </div>
 
