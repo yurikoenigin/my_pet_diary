@@ -3,6 +3,7 @@ ja:
     models:
       pet: ペット
       log_type: ログ種類
+      pet_log: ログ
     attributes:
       pet:
         name: 名前
