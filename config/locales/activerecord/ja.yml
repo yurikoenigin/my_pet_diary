@@ -17,6 +17,10 @@ ja:
         description: 説明
         active: ステータス
         updated_at: 登録日
+      pet_log:
+        content: 詳細
+        weight: 体重
+        occurred_at: いつ
   enums:
     pet:
       gender:
