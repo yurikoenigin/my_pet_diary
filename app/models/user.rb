@@ -14,10 +14,10 @@ class User < ApplicationRecord
 
   def create_default_log_types
     default_settings = [
-      { name: '通院', description: '診察やワクチン接種など', active: true },
-      { name: '投薬', description: 'ノミ薬やフィラリアの薬、その他の薬の投薬', active: true },
-      { name: 'お出かけ', description: 'お出かけや旅行など', active: true },
-      { name: '体調不良', description: '体調不良', active: true }
+      { name: "通院", description: "診察やワクチン接種など", active: true },
+      { name: "投薬", description: "ノミ薬やフィラリアの薬、その他の投薬", active: true },
+      { name: "お出かけ", description: "お出かけや旅行など", active: true },
+      { name: "体調不良", description: "体調不良", active: true }
     ]
     default_settings.each do |setting|
       log_types.create!(setting)
