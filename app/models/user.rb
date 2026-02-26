@@ -7,4 +7,20 @@ class User < ApplicationRecord
   validates :name, presence: true
   has_many :pets, dependent: :destroy
   has_many :log_types, dependent: :destroy
+
+  after_create :create_default_log_types
+
+  private
+
+  def create_default_log_types
+    default_settings = [
+      { name: "通院", description: "診察やワクチン接種など", active: true },
+      { name: "投薬", description: "ノミ薬やフィラリアの薬、その他の投薬", active: true },
+      { name: "お出かけ", description: "お出かけや旅行など", active: true },
+      { name: "体調不良", description: "体調不良", active: true }
+    ]
+    default_settings.each do |setting|
+      log_types.create!(setting)
+    end
+  end
 end
