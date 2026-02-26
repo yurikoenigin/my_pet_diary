@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_23_061534) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_26_082838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,6 +50,20 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_061534) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_log_types_on_user_id"
+  end
+
+  create_table "pet_logs", force: :cascade do |t|
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.bigint "log_type_id"
+    t.datetime "occurred_at", null: false
+    t.bigint "pet_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.float "weight"
+    t.index ["log_type_id"], name: "index_pet_logs_on_log_type_id"
+    t.index ["pet_id"], name: "index_pet_logs_on_pet_id"
+    t.index ["user_id"], name: "index_pet_logs_on_user_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -206,6 +220,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_23_061534) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "log_types", "users"
+  add_foreign_key "pet_logs", "log_types"
+  add_foreign_key "pet_logs", "pets"
+  add_foreign_key "pet_logs", "users"
   add_foreign_key "pets", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
