@@ -41,3 +41,14 @@ ja:
   log_types:
     new:
       title: ログ種類登録
+    show:
+      title: ログ種類詳細
+    edit:
+      title: ログ種類編集
+  pet_logs:
+    new:
+      title: ログ登録
+    show:
+      title: ログ詳細
+    edit:
+      title: ログ編集

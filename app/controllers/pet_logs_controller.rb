@@ -11,7 +11,7 @@ class PetLogsController < ApplicationController
   def show; end
 
   def new
-    @pet_logs = current_user.pet_logs.build
+    @pet_log = current_user.pet_logs.build
   end
 
   def edit; end
@@ -47,6 +47,9 @@ class PetLogsController < ApplicationController
   end
 
   def pet_log_params
-    params.require(:pet_log).permit(:content, :weight, :occurred_at)
+    params.require(:pet_log).permit(
+      :content, :weight, :pet_id, :log_type_id,
+      :occurred_date, :occurred_time # occurred_at の代わりにこの2つを許可
+    )
   end
 end
