@@ -19,9 +19,10 @@ ja:
         active: ステータス
         updated_at: 登録日
       pet_log:
-        content: 詳細
-        weight: 体重
+        content: メモ
+        weight: 体重(kg)
         occurred_at: いつ
+        log_type_id: ログ種類
   enums:
     pet:
       gender:
