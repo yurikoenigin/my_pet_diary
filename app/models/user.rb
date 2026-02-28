@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   has_many :pets, dependent: :destroy
   has_many :log_types, dependent: :destroy
+  has_many :pet_logs, dependent: :destroy
 
   after_create :create_default_log_types
 
