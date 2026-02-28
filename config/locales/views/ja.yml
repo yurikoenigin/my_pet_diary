@@ -27,6 +27,7 @@ ja:
   header:
     index_pet: ペット一覧
     index_log_type: ログ種類一覧
+    index_pet_log: ペットの記録一覧
   pets:
     new:
       title: ペット登録

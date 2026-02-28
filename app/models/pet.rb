@@ -3,6 +3,8 @@ class Pet < ApplicationRecord
   validates :active, inclusion: { in: [ true, false ] }
   belongs_to :user
 
+  has_many :pet_logs, dependent: :destroy
+
   has_one_attached :image
 
   # ファイルの種類とサイズのバリデーション（gem ActiveStorage Validationを使用）
