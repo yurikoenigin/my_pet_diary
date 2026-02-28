@@ -30,5 +30,4 @@ class PetLog < ApplicationRecord
     # 万が一、不正な文字列が送られてきた場合の処理
     nil
   end
-
 end
