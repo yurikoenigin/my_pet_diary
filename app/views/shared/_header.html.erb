@@ -3,15 +3,9 @@
     <a href="/" class="text-2xl text-orange-600 font-bold hover:text-blue-400">My Pet Diary</a>
     <ul class="flex gap-4 items-center">
       <% if user_signed_in? %>
-        <!-- ログインしている時 -->
-        <!--
-        <li class="text-orange-800 font-semibold">
-          <%= current_user.name %> さん
-        </li>
-        -->
         <!-- 1. ログを見る -->
         <li>
-          <%= link_to "ログを見る", pet_logs_path, class: "text-amber-700 font-semibold hover:text-amber-900 transition" %>
+          <%= link_to t('header.menu.view_log'), pet_logs_path, class: "text-amber-700 font-semibold hover:text-amber-900 transition" %>
         </li>
 
         <!-- 2. 各種設定 (プルダウン) -->
@@ -26,24 +20,24 @@
             <div class="px-4 py-2 text-xs text-gray-500 border-b border-gray-100 mb-1">
               ログイン中: <%= current_user.name %>さん
             </div>
-            <%= link_to "ペット情報", pets_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
-            <%= link_to "ログ種別情報", log_types_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
-            <%= link_to "ユーザー情報", "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
+            <%= link_to t('header.menu.pet_data'), pets_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
+            <%= link_to t('header.menu.log_type_data'), log_types_path, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
+            <%= link_to t('header.menu.user_data'), "#", class: "block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-600" %>
           </div>
         </li>
         <li>
-          <%= link_to "ログアウト", destroy_user_session_path, 
+          <%= link_to t('header.session.sign_out'), destroy_user_session_path, 
               data: { turbo_method: :delete }, 
               class: "inline-block bg-stone-400 text-white px-3 py-1.5 text-sm rounded-full font-semibold hover:bg-stone-500 transition duration-300 shadow-sm" %>
         </li>
       <% else %>
         <!-- ログインしていない時 -->
         <li>
-          <%= link_to "新規登録", new_user_registration_path, 
+          <%= link_to t('header.session.sign_up'), new_user_registration_path, 
               class: "inline-block bg-orange-400 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-500 transition duration-300 shadow-md" %>
         </li>
         <li>
-          <%= link_to "ログイン", new_user_session_path, 
+          <%= link_to t('header.session.sign_in'), new_user_session_path, 
               class: "inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold hover:bg-orange-700 transition duration-300 shadow-md" %>
         </li>
       <% end %>

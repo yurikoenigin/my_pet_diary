@@ -2,6 +2,7 @@
   <%# メインコンテンツカード %>
   <div class="bg-white border border-gray-200 rounded-2xl shadow-sm overflow-hidden">
     <div class="p-8">
+      <h1 class="mb-5 text-gray-700"><%= t('header.menu.log_type_data') %></h1>
       <div class="flex items-center gap-4 mb-6">
         <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -20,7 +21,7 @@
 
       <div class="space-y-6">
         <div>
-          <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">
+          <h2 class="text-sm text-gray-400 uppercase tracking-wider">
             <%= LogType.human_attribute_name(:description) %>
           </h2>
           <div class="mt-2 p-4 bg-gray-50 rounded-xl text-gray-700 leading-relaxed whitespace-pre-wrap"><%= @log_type.description %></div>

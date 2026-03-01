@@ -4,7 +4,7 @@
   <div>
     <label class="block text-sm font-medium text-gray-700 mb-2">ペットを選択</label>
     <div class="flex flex-wrap gap-4">
-      <% current_user.pets.each do |pet| %>
+      <% current_user.pets.where(active: true).order(:birthday).each do |pet| %>
         <label class="cursor-pointer group">
           <%= f.radio_button :pet_id, pet.id, class: "peer hidden" %>
           <div class="w-16 h-16 rounded-full border-4 border-transparent peer-checked:border-blue-500 peer-checked:scale-110 transition-all duration-200 overflow-hidden shadow-sm group-hover:opacity-80">
@@ -23,32 +23,30 @@
   <%# LogType のドロップダウン %>
   <div>
     <%= f.label :log_type_id, class: "block text-sm font-medium text-gray-700" %>
-    <%= f.collection_select :log_type_id, current_user.log_types, :id, :name, { prompt: "選択してください" }, { class: "px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" } %>
+    <%= f.collection_select :log_type_id, current_user.log_types.where(active: true), :id, :name, { prompt: "選択してください" }, { class: "px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" } %>
   </div>
 
   <%# その他の項目 %>
-  <%# <div class="grid grid-cols-2 gap-4"> %>
-    <div>
-      <%= f.label :occurred_at, class: "block text-sm font-medium text-gray-700" %>
-      <div class="flex gap-2">
-        <%# 日付入力（デフォルトで今日） %>
-        <%= f.date_field :occurred_date, 
-          value: (f.object.occurred_at || Time.current).to_date,
-          class: "flex-1 px-2 block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
-    
-        <%# 時刻入力（任意。入力しなければ 00:00 等で処理） %>
-        <%= f.time_field :occurred_time, 
-          value: f.object.occurred_at&.strftime('%H:%M'),
-          class: "w-40 px-2 block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500",
-          placeholder: "--:--" %>
-      </div>
-      <p class="text-xs text-gray-400">※時刻は空欄でもOKです</p>
+  <div>
+    <%= f.label :occurred_at, class: "block text-sm font-medium text-gray-700" %>
+    <div class="flex gap-2">
+      <%# 日付入力（デフォルトで今日） %>
+      <%= f.date_field :occurred_date, 
+        value: (f.object.occurred_at || Time.current).to_date,
+        class: "flex-1 px-2 block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500" %>
+
+      <%# 時刻入力（任意。入力しなければ 00:00 等で処理） %>
+      <%= f.time_field :occurred_time, 
+        value: f.object.occurred_at&.strftime('%H:%M'),
+        class: "w-40 px-2 block rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500",
+        placeholder: "--:--" %>
     </div>
-    <div>
-      <%= f.label :weight, class: "block text-sm font-medium text-gray-700" %>
-      <%= f.number_field :weight, step: "0.1", class: "px-2 mt-1 block w-40 rounded-md border-gray-300 shadow-sm" %>
-    </div>
-  <%# </div> %>
+    <p class="text-xs text-gray-400">※時刻は空欄でもOKです</p>
+  </div>
+  <div>
+    <%= f.label :weight, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.number_field :weight, step: "0.1", class: "px-2 mt-1 block w-40 rounded-md border-gray-300 shadow-sm" %>
+  </div>
 
   <div>
     <%= f.label :content, class: "block text-sm font-medium text-gray-700" %>
