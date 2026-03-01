@@ -3,7 +3,7 @@ class LogTypesController < ApplicationController
   before_action :set_log_type, only: %i[ show edit update destroy ]
 
   def index
-    @log_types = current_user.log_types
+    @log_types = current_user.log_types.order(id: :asc)
   end
 
   def show; end
