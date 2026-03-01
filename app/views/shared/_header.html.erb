@@ -1,6 +1,9 @@
 <header class="bg-orange-200 p-4">
   <nav class="container mx-auto flex justify-between items-center">
-    <a href="/" class="text-2xl text-orange-600 font-bold hover:text-blue-400">My Pet Diary</a>
+    <a href="/" class="text-2xl text-orange-600 font-bold hover:text-blue-400 flex items-center gap-2">
+      <%= image_tag "pets_image.png", alt: "ロゴ", class: "w-5 h-5" %>
+      <span>My Pet Diary</span>
+    </a>
     <ul class="flex gap-4 items-center">
       <% if user_signed_in? %>
         <!-- 1. ログを見る -->
