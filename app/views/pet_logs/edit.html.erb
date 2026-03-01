@@ -1,0 +1,16 @@
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-100">
+    <div class="mb-8">
+      <h1 class="text-center text-2xl font-extrabold text-gray-900">
+        <%= t('.title') %>
+      </h1>
+    </div>
+    
+    <%= render 'form', pet_log: @pet_log %>
+
+    <div class="mt-6 flex justify-between items-center px-1">
+      <%= link_to t('defaults.back_to_show'), pet_log_path(@pet_log), class: "text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors" %>
+      <%= link_to t('defaults.back_to_index'), pet_logs_path, class: "text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors" %>
+    </div>
+  </div>
+</div>
