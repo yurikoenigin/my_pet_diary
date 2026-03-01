@@ -1,11 +1,11 @@
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
   <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md border border-gray-100">
     
+    <h1 class="mb-5 text-gray-700"><%= t('header.menu.pet_data') %></h1>
     <%# ヘッダー部分：名前とステータス %>
-    <div class="mb-8 flex justify-between items-start">
+    <div class="mb-7 flex justify-between items-start">
       <div>
         <h1 class="text-2xl font-bold text-gray-900"><%= @pet.name %></h1>
-        <p class="text-sm text-gray-500"><%= t('.title') %></p>
       </div>
       <% if @pet.active %>
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-green-100 text-green-800">

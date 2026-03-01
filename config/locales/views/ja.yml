@@ -28,6 +28,15 @@ ja:
     index_pet: ペット一覧
     index_log_type: ログ種類一覧
     index_pet_log: ペットの記録一覧
+    session:
+      sign_in: ログイン
+      sign_out: ログアウト
+      sign_up: 新規登録
+    menu:
+      view_log: ログを見る
+      pet_data: ペット情報
+      log_type_data: ログ種別情報
+      user_data: ユーザー情報
   pets:
     new:
       title: ペット登録
