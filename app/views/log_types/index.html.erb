@@ -9,7 +9,7 @@
   <%# 縦に並べるコンテナ %>
   <div class="space-y-4">
     <% @log_types.each do |log_type| %>
-      <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-indigo-300 transition-colors flex items-center gap-4">
+      <div class="relative bg-white border border-gray-200 rounded-xl p-4 shadow-sm hover:border-indigo-300 transition-colors flex items-center gap-4">
         
         <%# 左側のアイコンエリア %>
         <div class="flex-shrink-0 w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600">
@@ -17,7 +17,7 @@
         </div>
 
         <%# 中央のテキストエリア（横長に広がる） %>
-        <div class="flex-1 min-w-0">
+        <div class="flex-1 min-w-0 pr-16 sm:pr-0">
           <div class="flex items-center gap-2">
             <h3 class="text-lg font-bold text-gray-900 truncate"><%= log_type.name %></h3>
             <% if log_type.active %>
@@ -27,7 +27,7 @@
             <% end %>
           </div>
           <% if log_type.description.present? %>
-            <p class="text-sm text-gray-500 truncate mt-0.5"><%= log_type.description %></p>
+            <p class="text-sm text-gray-500 mt-0.5 whitespace-pre-wrap"><%= log_type.description %></p>
           <% end %>
         </div>
 
