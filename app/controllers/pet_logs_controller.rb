@@ -6,6 +6,13 @@ class PetLogsController < ApplicationController
     @pet_logs = current_user.pet_logs
                             .includes(:log_type, pet: { image_attachment: :blob })
                             .order(occurred_at: :desc)
+    @pets = current_user.pets.order(:created_at)
+
+    if params[:pet_id].present?
+      @pet_logs = @pet_logs.where(pet_id: params[:pet_id])
+    end
+
+    @pet_logs = @pet_logs.page(params[:page])
   end
 
   def show; end

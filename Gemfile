@@ -79,3 +79,5 @@ gem "devise-i18n-views"
 gem "active_storage_validations"
 
 gem "cloudinary", "~> 2.0"
+
+gem "kaminari"
