@@ -7,12 +7,26 @@ class PetLogsController < ApplicationController
                             .includes(:log_type, pet: { image_attachment: :blob })
                             .order(occurred_at: :desc)
     @pets = current_user.pets.order(:created_at)
+    @log_types = current_user.log_types
 
     if params[:pet_id].present?
       @pet_logs = @pet_logs.where(pet_id: params[:pet_id])
     end
 
-    @pet_logs = @pet_logs.page(params[:page])
+    @pet_logs = @pet_logs.where(pet_id: params[:pet_id]) if params[:pet_id].present?
+    @pet_logs = @pet_logs.where(log_type_id: params[:log_type_id]) if params[:log_type_id].present?
+
+    if params[:from_month].present? || params[:to_month].present?
+      start_date = params[:from_month].present? ? Time.zone.parse("#{params[:from_month]}-01").beginning_of_month : Time.at(0)
+      end_date = params[:to_month].present? ? Time.zone.parse("#{params[:to_month]}-01").end_of_month : Time.zone.now.end_of_year + 100.years
+      @pet_logs = @pet_logs.where(occurred_at: start_date..end_date)
+    end
+
+    if params[:has_weight] == "1"
+      @pet_logs = @pet_logs.where.not(weight: nil)
+    end
+
+    @pet_logs = @pet_logs.page(params[:page]).per(10)
   end
 
   def show; end
