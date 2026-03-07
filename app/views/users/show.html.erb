@@ -1,0 +1,43 @@
+<div class="flex justify-center items-center mt-10 px-4">
+  <div id="profile" class="w-full max-w-md bg-white shadow-sm border rounded-xl border-gray-200">
+    
+    <div class="card-body items-center text-center p-8">
+      <!-- ユーザー名の装飾 -->
+      <div class="mb-2">
+        <h2 class="card-title text-2xl font-bold text-primary">
+          <%= current_user.name %>
+        </h2>
+        <div class="badge badge-ghost mt-1">飼い主さん</div>
+      </div>
+
+      <!-- メールアドレス（少し背景をつけて見やすく） -->
+      <div class="bg-base-200 rounded-lg px-4 py-2 my-4 w-full">
+        <p class="text-sm text-base-content/70 mb-1">登録メールアドレス</p>
+        <p class="font-medium"><%= current_user.email %></p>
+      </div>
+      
+      <!-- メインアクション -->
+      <!--
+      <div class="card-actions w-full mt-6">
+        <%= link_to edit_user_registration_path, class: "btn btn-primary btn-block gap-2", data: { turbo_stream: true } do %>
+          <svg xmlns="http://www.w3.org" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+          </svg>
+          プロフィールを編集
+        <% end %>
+      </div>
+    </div>
+    -->
+
+    <!-- 削除ボタン（カードの最下部に控えめに配置） -->
+    <!--
+    <div class="flex justify-center pb-6 border-t border-gray-200 pt-4 bg-base-50 rounded-b-2xl">
+      <%= link_to user_registration_path, 
+          class: "btn btn-ghost btn-xs text-error/60 hover:text-error hover:bg-error/10 transition-colors", 
+          data: { turbo_method: :delete, turbo_confirm: "本当にアカウントを削除しますか？\nこれまでのログデータもすべて消えてしまいます。" } do %>
+        アカウントを削除する
+      <% end %>
+    </div>
+    -->
+  </div>
+</div>
