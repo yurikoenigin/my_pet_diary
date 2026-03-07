@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get "home/top"
+  get "users/show", to: "users#show", as: "profile"
 
   resources :pets
   resources :log_types
