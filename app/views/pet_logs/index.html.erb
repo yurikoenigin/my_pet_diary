@@ -1,7 +1,7 @@
 <div class="max-w-3xl container mx-auto px-4 py-8">
   <div class="flex items-center justify-between mb-6">
     <h1 class="text-2xl font-bold text-gray-800"><%= t('header.index_pet_log') %></h1>
-    <%= link_to t('defaults.go_to_new'), new_pet_log_path, class: "inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition shadow-sm" %>
+    <%= link_to "新しく記録する", new_pet_log_path, class: "inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition shadow-sm" %>
   </div>
 
   <!-- ペット選択フィルター: 横スクロール対応 -->
@@ -153,7 +153,7 @@
       </div>
     <% end %>
   </div>
-    <div class="mt-6">
+    <div class="mt-6 text-sm text-gray-600">
     <%= paginate @pet_logs %>
   </div>
 </div>
