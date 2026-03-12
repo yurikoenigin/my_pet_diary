@@ -1,6 +1,7 @@
 class PetLogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_pet_log, only: %i[ show edit update destroy ]
+  before_action :check_pet_exists, only: [:new, :create]
 
   def index
     @pet_logs = current_user.pet_logs
@@ -42,6 +43,7 @@ class PetLogsController < ApplicationController
     if @pet_log.save
       redirect_to pet_logs_path, notice: t("defaults.flash_message.created", item: PetLog.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :new, status: :unprocessable_entity
     end
   end
@@ -50,6 +52,7 @@ class PetLogsController < ApplicationController
     if @pet_log.update(pet_log_params)
       redirect_to pet_logs_path, notice: t("defaults.flash_message.updated", item: PetLog.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :edit, status: :unprocessable_entity
     end
   end
@@ -72,5 +75,12 @@ class PetLogsController < ApplicationController
       :content, :weight, :pet_id, :log_type_id,
       :occurred_date, :occurred_time # occurred_at の代わりにこの2つを許可
     )
+  end
+
+  def check_pet_exists
+    # 「activeがtrue」のペットが1匹も存在しない場合
+    unless current_user.pets.exists?(active: true)
+      redirect_to pets_path, alert: "まずはペットを登録（または有効化）してください。"
+    end
   end
 end
