@@ -1,7 +1,7 @@
 class PetLogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_pet_log, only: %i[ show edit update destroy ]
-  before_action :check_pet_exists, only: [:new, :create]
+  before_action :check_pet_exists, only: [ :new, :create ]
 
   def index
     @pet_logs = current_user.pet_logs
