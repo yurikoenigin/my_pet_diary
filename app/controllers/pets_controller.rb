@@ -19,6 +19,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to pets_path, notice: t("defaults.flash_message.created", item: Pet.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,6 +28,7 @@ class PetsController < ApplicationController
     if @pet.update(pet_params)
       redirect_to pets_path, notice: t("defaults.flash_message.updated", item: Pet.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :edit, status: :unprocessable_entity
     end
   end

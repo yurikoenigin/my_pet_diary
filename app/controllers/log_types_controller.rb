@@ -19,6 +19,7 @@ class LogTypesController < ApplicationController
     if @log_type.save
       redirect_to log_types_path, notice: t("defaults.flash_message.created", item: LogType.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,6 +28,7 @@ class LogTypesController < ApplicationController
     if @log_type.update(log_type_params)
       redirect_to log_types_path, notice: t("defaults.flash_message.updated", item: LogType.model_name.human)
     else
+      flash.now[:alert] = "入力内容に不備があります"
       render :edit, status: :unprocessable_entity
     end
   end

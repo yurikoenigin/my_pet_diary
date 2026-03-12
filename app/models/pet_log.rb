@@ -3,6 +3,7 @@ class PetLog < ApplicationRecord
   belongs_to :pet
   belongs_to :log_type, optional: true
 
+  validates :weight, numericality: { greater_than: 0, allow_nil: true }
   validate :log_type_or_weight_present
 
   # フォームから送られてくる一時的なデータを受け取る窓口
